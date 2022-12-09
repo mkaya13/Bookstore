@@ -4,10 +4,12 @@ import '../index.css';
 
 export default class Book extends React.PureComponent {
   render() {
-    const { title, author } = this.props;
+    const { book } = this.props;
+    const { title, author } = book;
     return (
       <li>
         {title}
+        &nbsp; &nbsp; &nbsp;
         {author}
       </li>
     );
@@ -15,6 +17,8 @@ export default class Book extends React.PureComponent {
 }
 
 Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  }).isRequired,
 };

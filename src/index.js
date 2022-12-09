@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import BookContainer from './components/BookContainer';
 import Navbar from './components/Navbar';
@@ -12,13 +12,16 @@ class App extends React.Component {
     return (
       <>
         <Navbar />
-        <Router>
-          <Router path="/" element={<BookContainer />} />
-          <Router
+        <Routes>
+          <Route
+            path="/"
+            element={<BookContainer />}
+          />
+          <Route
             path="/about"
             element={<div>This is gonna be the about page!</div>}
           />
-        </Router>
+        </Routes>
       </>
     );
   }
