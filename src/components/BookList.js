@@ -5,10 +5,11 @@ import Book from './Book';
 export default class BookList extends React.PureComponent {
   render() {
     const { books } = this.props;
+    const { handleTrash } = this.props;
     return (
       <ul>
         {books.map((book) => (
-          <Book key={book.id} book={book} />
+          <Book key={book.id} book={book} handleTrash={handleTrash} />
         ))}
       </ul>
     );
@@ -16,5 +17,6 @@ export default class BookList extends React.PureComponent {
 }
 
 BookList.propTypes = {
-  books: PropTypes.string.isRequired,
+  handleTrash: PropTypes.func.isRequired,
+  books: PropTypes.map(PropTypes.string, PropTypes.element).isRequired,
 };

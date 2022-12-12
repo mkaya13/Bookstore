@@ -16,12 +16,19 @@ export default class TodoContainer extends React.Component {
     };
   }
 
+  handleTrash = (id) => {
+    const { books } = this.state;
+    this.setState({
+      books: [...books.filter((book) => book.id !== id)],
+    });
+  };
+
   render() {
     const { books } = this.state;
     return (
       <div className="bookstore-items">
         <h2>Books in the Store</h2>
-        <BookList books={books} />
+        <BookList books={books} handleTrash={this.handleTrash} />
         <InputBook />
       </div>
     );
