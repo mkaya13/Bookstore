@@ -21,6 +21,6 @@ export default function booksReducer(state = {}, action = {}) {
   }
 }
 
-booksReducer.addWidgets = (widget) => ({ type: ADD, widget });
+export const addWidgets = (widget) => ({ type: ADD, widget });
 
-booksReducer.removeWidgets = (widget) => ({ type: REMOVE, widget });
+export const removeWidgets = (widget) => ({ type: REMOVE, widget });

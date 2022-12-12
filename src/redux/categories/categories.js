@@ -15,4 +15,4 @@ export default function categoriesReducer(state = {}, action = {}) {
   }
 }
 
-categoriesReducer.addWidgets = (widget) => ({ type: STATUS, widget });
+export const statusWidgets = (widget) => ({ type: STATUS, widget });
