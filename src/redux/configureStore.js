@@ -8,6 +8,5 @@ const rootReducer = Redux.combineReducers({
   auth: categoriesReducer,
 });
 
+// eslint-disable-next-line no-unused-vars
 const store = configureStore({ reducer: rootReducer });
-
-console.log(store.count.getState());

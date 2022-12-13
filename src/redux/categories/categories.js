@@ -1,18 +1,13 @@
 // ACTIONS
-const STATUS = 'my-app/widgets/STATUS';
+const STATUS = 'bookstore/categories/STATUS';
 
 export default function categoriesReducer(state = {}, action = {}) {
   switch (action.type) {
     case STATUS:
-      return [
-        {
-          status: 'Under construction',
-        },
-      ];
-
+      return 'Under construction';
     default:
       return state;
   }
 }
 
-export const statusWidgets = (widget) => ({ type: STATUS, widget });
+export const updateStatus = (payload) => ({ type: STATUS, payload });

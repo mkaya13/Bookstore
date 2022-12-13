@@ -1,18 +1,13 @@
 // ACTIONS
-const ADD = 'my-app/widgets/ADD';
-const REMOVE = 'my-app/widgets/REMOVE';
+const ADD = 'bookstore/books/ADD';
+const REMOVE = 'bookstore/books/REMOVE';
 
-export default function booksReducer(state = {}, action = {}) {
+const initialState = [];
+
+export default function booksReducer(state = initialState, action = {}) {
   switch (action.type) {
     case ADD:
-      return [
-        ...state,
-        {
-          id: action.id,
-          book: action.book,
-          author: action.author,
-        },
-      ];
+      return [action.payload, ...state];
     case REMOVE:
       return state.filter((book) => book.id !== action.id);
 
@@ -21,6 +16,6 @@ export default function booksReducer(state = {}, action = {}) {
   }
 }
 
-export const addWidgets = (widget) => ({ type: ADD, widget });
+export const addBook = (payload) => ({ type: ADD, payload });
 
-export const removeWidgets = (widget) => ({ type: REMOVE, widget });
+export const removeBook = (widget) => ({ type: REMOVE, widget });
