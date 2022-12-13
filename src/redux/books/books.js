@@ -18,4 +18,4 @@ export default function booksReducer(state = initialState, action = {}) {
 
 export const addBook = (payload) => ({ type: ADD, payload });
 
-export const removeBook = (widget) => ({ type: REMOVE, widget });
+export const removeBook = (payload) => ({ type: REMOVE, payload });
