@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import BookList from './BookList';
 import InputBook from './InputBook';
 import '../index.css';
@@ -9,9 +10,13 @@ export default class TodoContainer extends React.Component {
 
     this.state = {
       books: [
-        { title: 'Outliers', author: 'Malcolm Gladwell', id: '1' },
-        { title: 'The Tipping Point', author: 'Malcolm Gladwell', id: '2' },
-        { title: 'Rise of Nations', author: 'Daren Acemoğlu', id: '3' },
+        { title: 'Outliers', author: 'Malcolm Gladwell', id: uuidv4() },
+        {
+          title: 'The Tipping Point',
+          author: 'Malcolm Gladwell',
+          id: uuidv4(),
+        },
+        { title: 'Rise of Nations', author: 'Daren Acemoğlu', id: uuidv4() },
       ],
     };
   }
