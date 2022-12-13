@@ -5,12 +5,17 @@ import '../index.css';
 export default class Book extends React.PureComponent {
   render() {
     const { book } = this.props;
-    const { title, author } = book;
+    const { title, author, id } = book;
+    const { handleTrash } = this.props;
     return (
       <li>
         {title}
         &nbsp; &nbsp; &nbsp;
         {author}
+        &nbsp; &nbsp; &nbsp;
+        <button type="button" onClick={() => handleTrash(id)}>
+          Trash
+        </button>
       </li>
     );
   }
@@ -18,7 +23,9 @@ export default class Book extends React.PureComponent {
 
 Book.propTypes = {
   book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
   }).isRequired,
+  handleTrash: PropTypes.func.isRequired,
 };

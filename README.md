@@ -68,11 +68,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> Key Features of the Application
 
-- **Calculator**
-- **User Interface**
 - **React**
+- **Redux**
+- **APIS**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,7 +107,7 @@
 
 Clone this repository to your desired folder:
 
-- `git clone https://github.com/mkaya13/math-magicians.git`
+- `git clone https://github.com/mkaya13/Bookstore.git`
 
 ### Install
 
