@@ -4,8 +4,8 @@ import Book from './Book';
 
 export default class BookList extends React.PureComponent {
   render() {
-    const { books } = this.props;
-    const { handleTrash } = this.props;
+    const { books, handleTrash } = this.props;
+    /* eslint-disable react/prop-types */
     return (
       <ul>
         {books.map((book) => (
@@ -18,5 +18,5 @@ export default class BookList extends React.PureComponent {
 
 BookList.propTypes = {
   handleTrash: PropTypes.func.isRequired,
-  books: PropTypes.map(PropTypes.string, PropTypes.element).isRequired,
+  books: PropTypes.oneOfType([PropTypes.array]).isRequired,
 };
