@@ -1,12 +1,14 @@
-import Redux from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from './books/books';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { booksReducer } from './books/books';
 import categoriesReducer from './categories/categories';
 
-const rootReducer = Redux.combineReducers({
-  count: booksReducer,
-  auth: categoriesReducer,
+const rootReducer = combineReducers({
+  books: booksReducer,
+  categories: categoriesReducer,
 });
 
-// eslint-disable-next-line no-unused-vars
-const store = configureStore({ reducer: rootReducer });
+export const store = configureStore({
+  reducer: rootReducer,
+});
+
+export default { store };

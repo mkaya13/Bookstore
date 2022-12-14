@@ -1,7 +1,9 @@
 // ACTIONS
 const STATUS = 'bookstore/categories/STATUS';
 
-export default function categoriesReducer(state = {}, action = {}) {
+const initialState = [];
+
+export default function categoriesReducer(state = initialState, action = {}) {
   switch (action.type) {
     case STATUS:
       return 'Under construction';
@@ -10,4 +12,4 @@ export default function categoriesReducer(state = {}, action = {}) {
   }
 }
 
-export const updateStatus = (payload) => ({ type: STATUS, payload });
+export const checkStatus = (payload) => ({ type: STATUS, payload });
