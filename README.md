@@ -147,7 +147,10 @@ Incoming ...
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Incoming ...
+> Future Features of the Application
+
+- **Dashboard**
+- **Extract data from an API**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
