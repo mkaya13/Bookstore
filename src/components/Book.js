@@ -4,16 +4,24 @@ import '../index.css';
 
 export default class Book extends React.PureComponent {
   render() {
-    const { book } = this.props;
-    const { title, author, id } = book;
-    const { handleTrash } = this.props;
+    const { book, handleTrash } = this.props;
+    const {
+      title,
+      author,
+      // eslint-disable-next-line camelcase
+      item_id,
+      category,
+    } = book;
+
     return (
       <li>
         {title}
-        &nbsp; &nbsp; &nbsp;
+        &nbsp;|&nbsp;
         {author}
-        &nbsp; &nbsp; &nbsp;
-        <button type="button" onClick={() => handleTrash(id)}>
+        &nbsp;|&nbsp;
+        {category}
+        &nbsp;|&nbsp;
+        <button type="button" onClick={() => handleTrash(item_id)}>
           Trash
         </button>
       </li>
@@ -23,9 +31,10 @@ export default class Book extends React.PureComponent {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
   handleTrash: PropTypes.func.isRequired,
 };

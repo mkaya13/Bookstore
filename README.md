@@ -151,6 +151,7 @@ Incoming ...
 
 - **Dashboard**
 - **Extract data from an API**
+- **Finish the styling**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

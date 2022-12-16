@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import '../index.css';
-import { addBookEvent } from '../redux/books/books';
+import { addBookEvent, LoadBooks } from '../redux/books/books';
 
 export const InputBook = () => {
   const [inputBook, setInputBook] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   const dispatch = useDispatch();
@@ -18,19 +20,23 @@ export const InputBook = () => {
     });
   };
 
-  const handleAddBook = (e) => {
+  const handleAddBook = async (e) => {
     e.preventDefault();
     if (inputBook.title.trim()) {
+      const bookObj = {
+        item_id: uuidv4(),
+        title: inputBook.title,
+        author: inputBook.author,
+        category: inputBook.category,
+      };
+
+      await dispatch(addBookEvent(bookObj));
+      await dispatch(LoadBooks());
       setInputBook({
         title: '',
         author: '',
+        category: '',
       });
-      dispatch(
-        addBookEvent({
-          title: inputBook.title,
-          author: inputBook.author,
-        }),
-      );
     } else {
       // eslint-disable-next-line no-alert
       alert('Please write a title');
@@ -55,6 +61,14 @@ export const InputBook = () => {
           placeholder="Add Author"
           value={inputBook.author}
           name="author"
+          onChange={onChange}
+        />
+        <input
+          type="text"
+          className="input-category"
+          placeholder="Add Category"
+          value={inputBook.category}
+          name="category"
           onChange={onChange}
         />
         <button onClick={handleAddBook} type="button" className="input-submit">
