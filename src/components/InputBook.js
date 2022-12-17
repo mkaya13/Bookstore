@@ -44,9 +44,9 @@ export const InputBook = () => {
   };
 
   return (
-    <div>
+    <div className="div-form">
+      <h2 className="form-header"> Add a New Book</h2>
       <form className="form-container">
-        <h2> Add a Book</h2>
         <input
           type="text"
           className="input-title"
@@ -63,16 +63,20 @@ export const InputBook = () => {
           name="author"
           onChange={onChange}
         />
-        <input
+        <select
           type="text"
           className="input-category"
           placeholder="Add Category"
           value={inputBook.category}
           name="category"
           onChange={onChange}
-        />
-        <button onClick={handleAddBook} type="button" className="input-submit">
-          Submit
+        >
+          <option value="Action">Action</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Economy">Economy</option>
+        </select>
+        <button onClick={handleAddBook} type="button" className="chapter-button">
+          ADD BOOK
         </button>
       </form>
     </div>

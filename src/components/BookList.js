@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Book from './Book';
+import '../index.css';
 import { LoadBooks, RemoveBookEvent } from '../redux/books/books';
 
 export const BookList = (props) => {
@@ -16,7 +17,7 @@ export const BookList = (props) => {
   };
 
   return (
-    <ul>
+    <ul className="each-book-table">
       {books
       && books.map((book) => (
         <Book key={book.item_id} book={book} handleTrash={handleTrash} />

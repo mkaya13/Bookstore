@@ -7,29 +7,32 @@ const Navbar = () => {
     {
       id: 1,
       path: '/',
-      text: 'Home',
+      text: 'BOOKS',
     },
     {
       id: 2,
-      path: '/about',
-      text: 'About',
+      path: '/categories',
+      text: 'CATEGORIES',
     },
   ];
 
   return (
     <nav className="navBar">
-      <span>
-        <h2 className="logo">Book Store</h2>
-      </span>
-      <ul className="navbar-ul">
-        {links.map((link) => (
-          <li key={link.id}>
-            <NavLink to={link.path} className="active-link">
-              {link.text}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      <div className="inside-navbar">
+        <span>
+          <h2 className="logo">Bookstore CMS</h2>
+        </span>
+        <ul className="navbar-ul">
+          {links.map((link) => (
+            <li key={link.id}>
+              <NavLink to={link.path} className="active-link">
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+        <img className="user-image" src="images/user-image.png" alt="" />
+      </div>
     </nav>
   );
 };

@@ -12,17 +12,19 @@ class App extends React.PureComponent {
   render() {
     return (
       <>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={<BookContainer />}
-          />
-          <Route
-            path="/about"
-            element={<div>This is gonna be the about page!</div>}
-          />
-        </Routes>
+        <div className="main-holder">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={<BookContainer />}
+            />
+            <Route
+              path="/about"
+              element={<div>This is gonna be the about page!</div>}
+            />
+          </Routes>
+        </div>
       </>
     );
   }
