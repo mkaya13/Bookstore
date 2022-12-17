@@ -7,6 +7,7 @@ body {
 
 button {
   cursor: pointer;
+  border: none;
 }
 
 .main-holder {
@@ -104,12 +105,14 @@ nav ul li {
 }
 
 .book-button-holder {
+  border: none;
   display: flex;
   gap: 10px;
   padding-top: 3%;
 }
 
 .book-button {
+  border: none;
   color: #8dbce1;
   padding: 0;
   border: none;
@@ -196,8 +199,12 @@ nav ul li {
 
 .item-all-table {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   width: 100%;
   height: 14rem;
+  gap: 3%;
   flex-direction: row;
   background-color: white;
 }
@@ -208,7 +215,7 @@ nav ul li {
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding-left: 6%;
+  padding-right: 2.5%;
   gap: 0;
 }
 
@@ -227,24 +234,26 @@ nav ul li {
   text-align: center;
   justify-content: center;
   align-items: center;
-  width: 10rem;
+  width: 12rem;
   background-color: #0290ff;
   color: white;
-  border: 0.1px solid black;
-  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  border: none;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .div-form {
   display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
 }
 
 .form-header {
   display: flex;
-  justify-content: center;
-  align-content: center;
   color: #d4d4d4;
+  padding-left: 2%;
 }
 
 .form-container {
@@ -253,16 +262,31 @@ nav ul li {
   align-content: center;
   flex-direction: row;
   width: 100%;
-  gap: 1rem;
-  padding: 0.5% 5% 2.5% 0;
+  gap: 2rem;
+  padding: 0.5% 0 2.5% 0;
 }
 
 input {
-  width: 15%;
+  width: 23%;
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 select {
-  width: 15%;
+  width: 23%;
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+.vl {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-left: 1px solid gray;
+  height: 8rem;
+}
+
+.hr-line {
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 75px;
 }

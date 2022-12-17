@@ -45,6 +45,7 @@ export const InputBook = () => {
 
   return (
     <div className="div-form">
+      <hr className="hr-line" />
       <h2 className="form-header"> Add a New Book</h2>
       <form className="form-container">
         <input

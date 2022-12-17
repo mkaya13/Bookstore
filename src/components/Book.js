@@ -47,6 +47,7 @@ export default class Book extends React.PureComponent {
             </div>
           </div>
         </div>
+        <div className="vl" />
         <div className="current-chapter-div">
           <h2 className="current-chapter">CURRENT CHAPTER</h2>
           <p className="chapter-count">CHAPTER 17</p>
