@@ -1,2 +1,9 @@
 src/index.js
 src/components/InputBook.js
+src/scripts/1-AppCreate.js
+src/scripts/2-CreateANewBook.js
+src/scripts/4-ShowCreatedBooks.js
+src/scripts/3-DeleteABook.js
+src/redux/books/books.js
+src/components/BookList.js
+src/components/Book.js

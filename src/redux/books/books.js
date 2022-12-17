@@ -1,44 +1,75 @@
-import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 // ACTIONS
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
+const LOAD = 'bookstore/books/LOAD';
 
-const initialState = [
-  { title: 'Outliers', author: 'Malcolm Gladwell', id: uuidv4() },
-  {
-    title: 'The Tipping Point',
-    author: 'Malcolm Gladwell',
-    id: uuidv4(),
-  },
-  { title: 'Rise of Nations', author: 'Daren Acemoğlu', id: uuidv4() },
-];
+const initialState = {
+  books: [],
+};
 
 export function booksReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case ADD:
-      return [
+    case `${ADD}/fulfilled`:
+      return {
         ...state,
-        {
-          title: action.payload.title,
-          author: action.payload.author,
-          id: uuidv4(),
-        },
-      ];
-    case REMOVE:
-      return state.filter((book) => book.id !== action.id);
-
+        books: [...state.books, action.payload],
+      };
+    case `${REMOVE}/fulfilled`:
+      return {
+        books: [...state.books.filter((item) => item.id !== action.payload)],
+      };
+    case `${LOAD}/fulfilled`:
+      return {
+        books: [action.payload],
+      };
     default:
       return state;
   }
 }
 
-export const addBookEvent = (payload) => ({ type: ADD, payload });
+export const LoadBooks = createAsyncThunk(
+  LOAD,
+  async () => {
+    const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZR0nQylHgbvq3hdVIrjx/books');
+    const books = Object.keys(response.data).map((key) => ({
+      item_id: key,
+      ...response.data[key][0],
+    }));
+    return books;
+  },
+);
 
-export const removeBookEvent = (id) => ({ type: REMOVE, id });
+export const addBookEvent = createAsyncThunk(
+  ADD,
+  async (book) => {
+    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZR0nQylHgbvq3hdVIrjx/books',
+      {
+        item_id: book.item_id,
+        title: book.title,
+        author: book.author,
+        category: book.category,
+      });
+    return response.data;
+  },
+);
+
+export const RemoveBookEvent = createAsyncThunk(
+  REMOVE,
+  async (id) => {
+    await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZR0nQylHgbvq3hdVIrjx/books/${id}`,
+      {
+        item_id: id,
+      });
+    return { id };
+  },
+);
 
 export default {
   booksReducer,
   addBookEvent,
-  removeBookEvent,
+  LoadBooks,
+  RemoveBookEvent,
 };

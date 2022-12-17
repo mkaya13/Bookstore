@@ -1,29 +1,33 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Book from './Book';
-import { removeBookEvent } from '../redux/books/books';
+import '../index.css';
+import { LoadBooks, RemoveBookEvent } from '../redux/books/books';
 
 export const BookList = (props) => {
   const dispatch = useDispatch();
-
   const { books } = props;
 
-  const handleTrash = (id) => {
-    dispatch(removeBookEvent(id));
+  console.log('Where is my books', books);
+
+  const handleTrash = async (id) => {
+    await dispatch(RemoveBookEvent(id));
+    await dispatch(LoadBooks());
   };
 
   return (
-    <ul>
-      {books.map((book) => (
-        <Book key={book.id} book={book} handleTrash={handleTrash} />
+    <ul className="each-book-table">
+      {books
+      && books.map((book) => (
+        <Book key={book.item_id} book={book} handleTrash={handleTrash} />
       ))}
     </ul>
   );
 };
 
 BookList.propTypes = {
-  books: PropTypes.oneOfType([PropTypes.array]).isRequired,
+  books: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default BookList;

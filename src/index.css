@@ -1,6 +1,24 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: #f5f6fa;
+  font-family: 'Roboto Slab', serif;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.main-holder {
+  padding: 4% 15% 4% 15%;
+}
+
+.second-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  background-color: #fafafa;
 }
 
 .bookstore-items {
@@ -9,16 +27,18 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 2%;
+  padding-right: 4%;
+  background-color: #fafafa;
 }
 
 nav {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 5% 0 5%;
-  background-color: blue;
+  background-color: white;
   color: white;
 }
 
@@ -30,17 +50,240 @@ nav ul {
 
 nav ul li {
   cursor: pointer;
+  padding-left: 5%;
   list-style: none;
 }
 
 .active-link {
   text-decoration: none;
+  color: black;
+}
+
+.logo {
+  color: #0590ff;
+}
+
+.user-image {
+  padding-left: 52%;
+  width: 40px;
+  height: 40px;
+}
+
+.each-item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 100%;
+  gap: 4px;
+  padding: 0 5% 0 5%;
+}
+
+.each-book-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  height: 8%;
+}
+
+.book-category {
+  font-size: 14px;
+  color: #bcbcbc;
+}
+
+.book-title {
+  color: #383838;
+  font-size: 28px;
+}
+
+.book-author {
+  color: #8dbce1;
+  font-size: 16px;
+}
+
+.book-button-holder {
+  border: none;
+  display: flex;
+  gap: 10px;
+  padding-top: 3%;
+}
+
+.book-button {
+  border: none;
+  color: #8dbce1;
+  padding: 0;
+  background: none;
+}
+
+.inside-navbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.box .percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.box .percent svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.box .percent svg circle {
+  width: 150px;
+  height: 150px;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke-linecap: round;
+}
+
+.box .percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+}
+
+.box .percent .number h2 {
+  font-size: 48px;
+}
+
+.box .percent .number h2 span {
+  font-size: 24px;
+}
+
+.box .text {
+  padding: 10px 0 0;
+  color: #999;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.box .percent svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #f3f3f3;
+}
+
+.box .percent svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 60) / 100);
+  stroke: #03a9f4;
+}
+
+.item-all-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 14rem;
+  gap: 3%;
+  flex-direction: row;
+  background-color: white;
+}
+
+.current-chapter-div {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2.5%;
+  gap: 0;
+}
+
+.current-chapter {
+  font-size: 12px;
+  color: #cecece;
+}
+
+.chapter-count {
+  font-size: 16px;
+}
+
+.chapter-button {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  background-color: #0290ff;
   color: white;
+  border: none;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.div-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-header {
+  display: flex;
+  color: #d4d4d4;
+  padding-left: 1.5%;
 }
 
 .form-container {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 2rem;
+  padding: 0.5% 0 2.5% 0;
+}
+
+input {
+  width: 23%;
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+select {
+  width: 23%;
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+.vl {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-left: 1px solid #ededed;
+  height: 8rem;
+}
+
+.hr-line {
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 75px;
+  border-color: #ededed;
 }
