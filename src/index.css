@@ -242,9 +242,6 @@ nav ul li {
 
 .div-form {
   display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 100%;
 }
@@ -252,7 +249,7 @@ nav ul li {
 .form-header {
   display: flex;
   color: #d4d4d4;
-  padding-left: 2%;
+  padding-left: 1.5%;
 }
 
 .form-container {
@@ -280,7 +277,7 @@ select {
   justify-content: center;
   align-content: center;
   align-items: center;
-  border-left: 1px solid gray;
+  border-left: 1px solid #ededed;
   height: 8rem;
 }
 
@@ -288,4 +285,5 @@ select {
   width: 90%;
   margin-top: 30px;
   margin-left: 75px;
+  border-color: #ededed;
 }
